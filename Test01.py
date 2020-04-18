@@ -1,6 +1,7 @@
 # libraries to import
 import pandas
 import requests
+import Variables01
 
 # import variables
 from Variables01 import normalizationFactor
