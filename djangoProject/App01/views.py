@@ -3,21 +3,21 @@ from django.http import HttpResponse
 from .models import Post
 
 ## Dummy data
-posts = [
-    {
-        'author':'RandomGuy',
-        'title': 'Blog Post 1',
-        'content': 'Hiiii',
-        'date_posted': 'August 1 2019'
-    },
+# posts = [
+#     {
+#         'author':'RandomGuy',
+#         'title': 'Blog Post 1',
+#         'content': 'Hiiii',
+#         'date_posted': 'August 1 2019'
+#     },
     
-    {
-        'author':'Walter',
-        'title': 'Blog Post 2',
-        'content': 'Welcome!',
-        'date_posted': 'August 4 2019'
-    },
-]
+#     {
+#         'author':'Walter',
+#         'title': 'Blog Post 2',
+#         'content': 'Welcome!',
+#         'date_posted': 'August 4 2019'
+#     },
+# ]
 
 
 # Create your views here.
