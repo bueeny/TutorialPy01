@@ -9,6 +9,7 @@
                     <!-- {{form.as_p}}  Default styling--> 
                     {{form | crispy }}
                     {{profile_form | crispy}}
+                    {{profile_form.media}}
             </fieldset>
             <div class = "form-group">
                 <button class = "btn btn-outline-info" type = "submit">Sign Up</button>
@@ -20,4 +21,5 @@
             </small>
         </div>
     </div>
+
 {% endblock content%}
