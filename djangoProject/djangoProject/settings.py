@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'App01.apps.App01Config',
     'users.apps.UsersConfig',
+    'bootstrap_datepicker',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -123,9 +124,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# MediaRoot Directory where uploaded profile images are stored
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #full path is created autaomtically (BASE_DIR is based off django base file)
+MEDIA_URL = '/media/' # Profile pics being stored here
+
+# Extra Settings
 
 CRIPSY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'App01-home'
 
 LOGIN_URL = 'login'
+
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}
