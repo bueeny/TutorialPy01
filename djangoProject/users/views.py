@@ -8,27 +8,18 @@ from .forms import UserRegisterForm,UserUpdateForm,UserProfileForm
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
-        profile_form = UserProfileForm(request.POST)
-        if form.is_valid() and profile_name.is_valid():
-            form.save()
-            user = form.save()
-            profile =  profile_form.save(commit = False) #Don't save to database yet
-            profile.user = user
-            profile.save()
-
+        if form.is_valid:
+            form.save()        
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}. You are now able to login.') #message
             return redirect('login') # redirect back home
     else:
         form = UserRegisterForm()
-        profile_form = UserProfileForm()
 
-    context = {'form': form, 'profile_form': profile_form}
+    context = {'form': form }
     return render(request, 'users/register.html',context) #context = 'form' = for,
 
-
-
-@ login_required # To add in login authentication to access this login route
+@login_required # To add in login authentication to access this login route
 def profile(request): # To fill in form with existing data
 
     if request.method == 'POST':
