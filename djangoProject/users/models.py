@@ -5,7 +5,7 @@ from PIL import Image
 # Create your models here.
 # 1 profile = 1 user
 class Profile(models.Model):
-    user = models.OneToOneField(User ,on_delete = models.CASCADE, null = True, blank = True) #models.cascade, delete user = delete this profile too
+    user = models.OneToOneField(User ,on_delete = models.CASCADE) #models.cascade, delete user = delete this profile too
     birthday =  models.DateField(auto_now = False, auto_now_add = False, null = True)
     image = models.ImageField(default = 'default.jpg', upload_to = 'profile-pics',null = True)
     bio = models.TextField(max_length=500, blank=True)
