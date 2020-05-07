@@ -12,16 +12,6 @@ class UserRegisterForm(UserCreationForm):
         model = User
         fields = ['username','email','password1','password2']
 
-class UserUpdateForm(ModelForm):
-
-    class Meta:
-        model = User
-        fields = ['username','email']
-
-# # Use html 5 built-in date input
-# class DateInput(forms.DateInput):
-#     input_type = 'date'
-
 class UserProfileForm(ModelForm):
     class Meta: 
         model = Profile 
@@ -29,5 +19,15 @@ class UserProfileForm(ModelForm):
         # widgets = {'birthday': DateInput(format = '%Y-%m-%d',attrs = {'placeholder': 'Insert Birth Date Here'})}
         widgets = {'birthday': forms.DateInput( attrs={'class':'form-control', 'placeholder':'Select your birthdate', 'type':'date'})}
 
+class UserUpdateForm(ModelForm):
+    email = forms.EmailField()
+        
+    class Meta:
+        model = User
+        fields = ['username','email']
+
+# # Use html 5 built-in date input
+# class DateInput(forms.DateInput):
+#     input_type = 'date'
 
 
