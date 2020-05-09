@@ -14,14 +14,14 @@ class Profile(models.Model):
     def __str__ (self):
         return f'{self.user.username} Profile'
 
-    # def save(self, *args, **kwargs): # overwrite save function here. To resize image, whens saving this class.
-    #     super().save() # Using super for parent attribute
+    def save(self, *args, **kwargs): # overwrite save function here. To resize image, whens saving this class.
+        super().save(*args, **kwargs) # Using super for parent attribute
 
-    #     # Upload image > we will grab the image being uploaded. However, it may not be the size that we desire. And also, we need to compress.
-    #     # We will need to compress the files into their desired size so that our media won't have any storage issue.
-    #     img = Image.open(self.image.path) #Open image from nthe path
+        # Upload image > we will grab the image being uploaded. However, it may not be the size that we desire. And also, we need to compress.
+        # We will need to compress the files into their desired size so that our media won't have any storage issue.
+        img = Image.open(self.image.path) #Open image from nthe path
         
-    #     if (img.height > 300 or img.width > 300):
-    #         output_size = (300,300)
-    #         img.thumbnail(output_size)
-    #         img.save(self.image.path) # This block of code is to overwrite the save method of a model. 
+        if (img.height > 300 or img.width > 300):
+            output_size = (300,300)
+            img.thumbnail(output_size)
+            img.save(self.image.path) # This block of code is to overwrite the save method of a model. 
