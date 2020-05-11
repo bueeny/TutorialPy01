@@ -14,7 +14,7 @@ from .models import Profile # import models
 def create_profile(sender, instance, created, **kwargs):
     if created:
         Profile.objects.create(user = instance) # Profile to be created at that instance
-
+        
 # layman's term: create profile objects when a user is created
 
 @receiver(post_save, sender = User) # when a user is saved, send a signal. This signal will be recieved by a receiver.

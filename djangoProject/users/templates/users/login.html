@@ -10,12 +10,17 @@
                     {{form | crispy }}
             </fieldset>
             <div class = "form-group">
-                <button class = "btn btn-outline-info" type = "submit">Log In</button>
-            </div>  
+                <!-- For above fieldset form submission-->
+                <button class = "btn btn-outline-info" type = "submit">Log In</button> 
+                <!-- For reset field-->
+                <button class = "btn btn-outline-info ml-2" type = "reset">Reset</button> 
+                <!--Reset Passwords-->  
+                <a class = "text-muted ml-2" href = "{% url 'password_reset' %}" role = "button">Forget Password?</a> 
+            </div>      
         </form>
         <div class = "border-top pt-1">
             <small class = "text-muted">
-                Need an Account? <a class = "ml-2" href="{% url 'register' %}"> Sign Up Now</a>
+                Need an Account? <a class = "ml-2" href="{% url 'register' %}">Sign Up Now</a>
             </small>
         </div>
     </div>
