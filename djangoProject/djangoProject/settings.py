@@ -140,3 +140,10 @@ LOGIN_URL = 'login'
 BOOTSTRAP4 = {
     'include_jquery': True,
 }
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'bueeny1911@gmail.com'
+EMAIL_HOST_PASSWORD = 'hhhjwfdaacqkiiay'

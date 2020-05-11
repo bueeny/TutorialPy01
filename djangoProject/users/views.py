@@ -3,20 +3,27 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import UserRegisterForm,UserUpdateForm,UserProfileForm
+# from .models import Profile
 
 # Create your views here.
+
+#
 def register(request):
+
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
-        if form.is_valid:
-            form.save()        
+
+        if form.is_valid():
+            form.save() # User Details
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}. You are now able to login.') #message
             return redirect('login') # redirect back home
+            # Here Profile Object is not created yet
+            # Here we do not fill in profile information when logged in as User is an object, Profile model is an object under User model.
     else:
         form = UserRegisterForm()
 
-    context = {'form': form }
+    context = {'form': form}
     return render(request, 'users/register.html',context) #context = 'form' = for,
 
 @login_required # To add in login authentication to access this login route

@@ -11,12 +11,13 @@
                     <!-- {{profile_form | crispy}} -->
             </fieldset>
             <div class = "form-group">
-                <button class = "btn btn-outline-info" type = "submit">Sign Up</button>
+                <button class = "btn btn-outline-info" type = "submit" >Sign Up</button>
+                <button class = "btn btn-outline-info ml-2" type = "reset">Reset Form</button> 
             </div>  
         </form>
         <div class = "border-top pt-1">
             <small class = "text-muted">
-                Already have an account? <a class = "ml-2" href="#"> Sign In</a>
+                Already have an account? <a class = "ml-2" href="{% url 'login' %}"> Sign In</a>
             </small>
         </div>
     </div>
