@@ -1,0 +1,23 @@
+{%extends "App01/base.html" %} <!-- Call the base template -->
+{% block content %}
+ <!-- This is a for loop for html syntax, open and close if statements-->
+
+<article class="media content-section">
+  <img class="rounded-circle account-img" src="{{ userprofile.image.url}} ">
+  <div class="media-body">
+    <div class="article-metadata">
+      <p class="account-heading col-ml-2">{{ userprofile.user }}</p>
+      <p class="article-content">Email : {{ userprofile.user.email }}</p>
+      <p class="article-content">Birthdate : {{ userprofile.birthday | date:"d F,Y" }}</p>
+      <p class="article-content">Location : {{ userprofile.location}}</p>
+      <p class="article-content mb-0">Profile Bio :</p>
+    </div>
+
+      <p class="article-content">{{userprofile.bio}}</p>
+      {% if userprofile.user == user %}
+      <a class = "btn btn-outline-info" href = "{% url 'profile' %}">Update Profile</a>
+      {% endif %}
+  </div>
+</article>
+
+{% endblock content%}

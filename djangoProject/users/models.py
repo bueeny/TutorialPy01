@@ -28,4 +28,10 @@ class Profile(models.Model):
             hsize = int((float(img.size[1])*float(wpercent))) # maintain aspect ratio
             output_size = (basewidth,hsize) # maintain aspect ratio
             img.thumbnail(output_size, Image.ANTIALIAS)
-            img.save(self.image.path) # This block of code is to overwrite the save method of a model. 
+            img.save(self.image.path) # This block of code is to overwrite the save method of a model.
+            # This won't work when deployed.
+
+        # each object will coresspond to one url
+    def get_absolute_url(self):
+        return reverse('profile-details', kwargs= {'pk':self.user.pk}) # return the urlpath  as a string so we use reverse
+    

@@ -35,6 +35,10 @@ ul {
   border: 1px solid #dddddd;
   border-radius: 3px;
   margin-bottom: 20px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
+  max-width: 550px;
 }
 
 .article-title {
@@ -47,7 +51,11 @@ a.article-title:hover {
 }
 
 .article-content {
-  white-space: pre-line;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 550px;
+  overflow: hidden;
+  float: left;
 }
 
 .article-img {
@@ -83,3 +91,8 @@ a.article-title:hover {
 .account-heading {
   font-size: 2.5rem;
 }
+
+.account-heading2 {
+  font-size: 2.0rem;
+}
+

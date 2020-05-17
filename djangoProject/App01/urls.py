@@ -5,7 +5,7 @@ from .views import PostListView, PostDetailView, PostCreateView, PostUpdateView,
 urlpatterns = [
     # path('', views.home, name = 'App01-home'), #class based view leave as hompepage
     path('', PostListView.as_view(), name = 'App01-home'), #postlistview as hompepage
-    path('user/<str:username>', UserPostListView.as_view(), name = 'user-posts'),
+    path('post/<str:username>', UserPostListView.as_view(), name = 'user-posts'),
     path('post/<int:pk>/', PostDetailView.as_view(), name = 'post-detail' ),  #pk = primary key
     path('post/<int:pk>/update/', PostUpdateView.as_view(), name = 'post-update' ),
     path('post/<int:pk>/delete/', PostDeleteView.as_view(), name = 'post-delete' ), # update
