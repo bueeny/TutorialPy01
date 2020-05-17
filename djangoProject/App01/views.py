@@ -27,17 +27,20 @@ class PostListView(ListView):
     ordering = ['-date_posted'] #Syntax to order by which attribute
     paginate_by = 5
 
-class UserPostListView(ListView):   
+class UserPostListView(LoginRequiredMixin, ListView):   
     model = Post
     template_name = 'App01/user_posts.html' # <app><modeL><view_type>.html
     context_object_name = 'posts'
     paginate_by = 5
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user # Current login user
+
     def get_queryset(self):
         user = get_object_or_404(User, username = self.kwargs.get('username')) # get username of the instance
-        return Post.objects.filter(author = user).order_by('-date_posted')  # get the objects under this username\
+        return Post.objects.filter(author = user).order_by('-date_posted')  # get the objects under this username
 
-class PostDetailView(DetailView):   
+class PostDetailView(DetailView):       
     model = Post
 
 class PostCreateView(LoginRequiredMixin, CreateView):   
@@ -46,7 +49,7 @@ class PostCreateView(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user # Current login user
-        return super().form_valid(form) #Save 
+        return super().form_valid(form) #Save   
 
 class PostUpdateView(UserPassesTestMixin, UpdateView):  #UserPassesTestMixin to see whether a user passes an auth test
     model = Post
@@ -73,9 +76,6 @@ class PostDeleteView(LoginRequiredMixin ,UserPassesTestMixin, DeleteView):  #Use
             return True
         else :
             return False
-
-
-
 
 #####################################
 ## To import json into django Class:

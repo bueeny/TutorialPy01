@@ -1,9 +1,14 @@
-{%extends "App01/base.html" %} <!-- Call the base template -->
+{%extends "App01/base.html" %} Call the base template
 {% block content %}
 
-<div class="article-metadata">
-  <a class = "btn btn-outline-info mb-4" href = "{% url 'profile'%}">{{view.kwargs.username}}'s Profile</a>
-</div>
+<article class = "media content-section">
+  <div>
+      <!-- <a class = "btn bn-outline-info mb-4" href = "#">{{view.kwargs.username}}'s Profile</a> -->
+    <h2 class = "mr-4" href = "#">{{view.kwargs.username}}'s Posts</h2>
+    <a class = "mr-4" href ="{% url 'profile-detail' view.kwargs.username %}">Profile Information</a>
+  </div>
+</article>
+
 
 {% for post in posts %}
   <!-- This is a for loop for html syntax, open and close if statements-->
