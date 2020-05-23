@@ -1,0 +1,31 @@
+{% extends "App01/base.html" %}
+
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<div class= "content-section">
+  <legend class = "border-bottom mb-4">Join Today!</legend>
+
+  <p>{% blocktrans with provider_name=account.get_provider.name site_name=site.name %}You are about to use your {{provider_name}} account to login to
+  {{site_name}}. Please complete the following form:{% endblocktrans %}</p>
+  
+  <form class="signup" id="signup_form" method="post" action="{% url 'socialaccount_signup' %}">
+    {% csrf_token %}
+    {{ form | crispy }}
+    {% if redirect_field_value %}
+    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+    {% endif %}
+    <button class = "btn btn-outline-info" type="submit">{% trans "Sign Up" %} &raquo;</button>
+    <button class = "btn btn-outline-info ml-2" type = "reset">Reset Form</button>
+  </form>
+  
+  <div class = "border-top pt-1 mt-2">
+    <small class = "text-muted">
+        Already have an account? <a class = "ml-2" href="{% url 'login' %}"> Sign In</a>
+    </small>
+  </div>
+</div>
+{% endblock %}

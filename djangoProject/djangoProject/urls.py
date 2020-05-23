@@ -46,9 +46,11 @@ urlpatterns = [
         name='password_reset_done'),
     path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(
         template_name='users/password_reset_complete.html'),
-        name='password_reset_complete')
-
+        name='password_reset_complete'),
     # In human terms, if we go to url/app01HomePage/ where do we send them to. If we access app01HomePage, we will go to App01.urls
+    
+    # For google gmail
+    path('accounts/', include('allauth.urls'), name = 'google_sign_in')
 ]
 
 if settings.DEBUG:  # if in debug mode
