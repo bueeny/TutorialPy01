@@ -1,6 +1,10 @@
 {% extends "App01/base.html" %}
+
 {% load crispy_forms_tags %}
 {%block content%}
+{% load i18n %}
+{% load account socialaccount %}
+
     <div class= "content-section">
         <form method = "POST">
             {% csrf_token %} <!-- Security token-->
@@ -17,8 +21,18 @@
                 <!--Reset Passwords-->  
                 <a class = "text-muted ml-2" href = "{% url 'password_reset' %}" role = "button">Forget Password?</a> 
             </div>      
+
+            <small class = "text-muted">
+                Or login with :<a class = "ml-2"></a>               
+                <div class="socialaccount_ballot">
+                    <ul class="socialaccount_providers">
+                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                    </ul>                  
+                </div>
+            </small>
         </form>
-        <div class = "border-top pt-1">
+
+        <div class = "border-top pt-1 mt-2">
             <small class = "text-muted">
                 Need an Account? <a class = "ml-2" href="{% url 'register' %}">Sign Up Now</a>
             </small>
