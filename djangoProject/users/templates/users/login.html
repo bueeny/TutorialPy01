@@ -4,38 +4,86 @@
 {%block content%}
 {% load i18n %}
 {% load account socialaccount %}
+{% providers_media_js %}
 
-    <div class= "content-section">
-        <form method = "POST">
-            {% csrf_token %} <!-- Security token-->
-            <fieldset class = "form-group">
-                    <legend class = "border-bottom mb-4">Log In!</legend>
-                    <!-- {{form.as_p}}  Default styling--> 
-                    {{form | crispy }}
-            </fieldset>
-            <div class = "form-group">
-                <!-- For above fieldset form submission-->
-                <button class = "btn btn-outline-info" type = "submit">Log In</button> 
-                <!-- For reset field-->
-                <button class = "btn btn-outline-info ml-2" type = "reset">Reset</button> 
-                <!--Reset Passwords-->  
-                <a class = "text-muted ml-2" href = "{% url 'password_reset' %}" role = "button">Forget Password?</a> 
-            </div>      
+<!-- Google Sign In Button API. We use all auth instead-->
+<!-- <div>
+    <meta name="google-signin-scope" content="profile email">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="750223597816-rfjjie5nta0oujsd12j45r80ncbapc0q.apps.googleusercontent.com">
+</div> -->
 
-            <small class = "text-muted">
-                Or login with :<a class = "ml-2"></a>               
-                <div class="socialaccount_ballot">
-                    <ul class="socialaccount_providers">
-                    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-                    </ul>                  
-                </div>
-            </small>
-        </form>
+<style>
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+    }
+    
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 120px;
+      background-color: black;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+    
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+    }
+    
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+    }
+    .size_of_img{
+    width:90px}
+    </style>
 
-        <div class = "border-top pt-1 mt-2">
-            <small class = "text-muted">
-                Need an Account? <a class = "ml-2" href="{% url 'register' %}">Sign Up Now</a>
-            </small>
-        </div>
+<div class= "content-section">
+    <form method = "POST">
+        {% csrf_token %} <!-- Security token-->
+        <fieldset class = "form-group">
+                <legend class = "border-bottom mb-4">Log In!</legend>
+                <!-- {{form.as_p}}  Default styling--> 
+                {{form | crispy }}
+        </fieldset>
+        <div class = "form-group">
+            <!-- For above fieldset form submission-->
+            <button class = "btn btn-outline-info" type = "submit">Log In</button> 
+            <!-- For reset field-->
+            <button class = "btn btn-outline-info ml-2" type = "reset">Reset</button> 
+            <!--Reset Passwords-->  
+            <a class = "text-muted ml-2" href = "{% url 'password_reset' %}" role = "button">Forget Password?</a> 
+        </div>      
+
+        <small class = "text-muted">
+            Or login with :<a class = "ml-2"></a>            
+            <div class="socialaccount_ballot mt-2">
+                <!-- <ul class="socialaccount_providers">
+                {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                </ul> -->
+                <!-- <a class="btn btn-social-icon btn-google" href = "{% provider_login_url "google" method="js_sdk" %}">
+                    <span class="fa fa-google"></span> Google
+                </a> -->
+                <a href = "{% provider_login_url "google" method="js_sdk" %}" >
+                    <img title="Log in with your Google Account" 
+                    src="https://img.icons8.com/color/48/000000/google-logo.png"/ width = 30 height  = 30>
+                </a>
+                <!-- Google API Sign In Button -->
+                <!-- <div class="g-signin2 mt-2" data-longtitle="true" href = "{% provider_login_url "google" method="js_sdk" %}" data-theme="light"></div> -->
+            </div>   
+        </small>
+    </form>
+
+    <div class = "border-top pt-1 mt-3">
+        <small class = "text-muted">
+            Need an Account? <a class = "ml-2" href="{% url 'register' %}">Sign Up Now</a>
+        </small>
     </div>
+</div>
+
+
+
 {% endblock content%}
