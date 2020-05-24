@@ -146,7 +146,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # MediaRoot Directory where uploaded profile images are stored
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #full path is created autaomtically (BASE_DIR is based off django base file)
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #full path is created automatically (BASE_DIR is based off django base file)
 MEDIA_URL = '/media/' # Profile pics being stored here
 
 # Extra Settings
