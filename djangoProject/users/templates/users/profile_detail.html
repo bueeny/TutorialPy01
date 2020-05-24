@@ -5,15 +5,15 @@
 <article class="media content-section">
   <img class="rounded-circle account-img" src="{{ userprofile.image.url}} ">
   <div class="media-body">
+    <p class="account-heading col-ml-2 mb-1">{{ userprofile.user }}</p>
     <div class="article-metadata">
-      <p class="account-heading col-ml-2">{{ userprofile.user }}</p>
-      <p class="article-content">Email : {{ userprofile.user.email }}</p>
-      <p class="article-content">Birthdate : {{ userprofile.birthday | date:"d F,Y" }}</p>
-      <p class="article-content">Location : {{ userprofile.location}}</p>
-      <p class="article-content mb-0">Profile Bio :</p>
+      <p>Email : {{ userprofile.user.email }}</p>
+      <p>Birthdate : {{ userprofile.birthday | date:"d F,Y" }}</p>
+      <p>Location : {{ userprofile.location}}</p>
+      <p class = "mb-1">Profile Bio:</p>
+      <p class="content-section ml-auto p-2">{{userprofile.bio}}</p>
     </div>
 
-      <p class="article-content">{{userprofile.bio}}</p>
       {% if userprofile.user == user %}
       <a class = "btn btn-outline-info" href = "{% url 'profile' %}">Update Profile</a>
       {% endif %}
