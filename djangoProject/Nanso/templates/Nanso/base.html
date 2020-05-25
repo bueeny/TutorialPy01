@@ -1,0 +1,158 @@
+{% load static %} 
+<!--<!DOCTYPE HTML>  -->
+<html>
+	<head>
+        <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>-->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+        <!-- Include Main.css under static folder here-->
+        <link rel="stylesheet" type = "text/css" href = "{% static 'Nanso/main.css'%}">
+
+        <!-- Font Awesome -->
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+        <!-- Moment.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.23.0/moment.min.js" integrity="sha256-VBLiveTKyUZMEzJd6z2mhfxIqz3ZATCuVMawPZGzIfA=" crossorigin="anonymous"></script>
+
+        <!-- Tempus Dominus Bootstrap 4 -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+		
+		<script src=" {% static 'Nanso/app.js'%}"></script>
+
+        {% if title %}
+      	<title>Nanso - {{title}}</title>
+        {% else %}
+        <title>Nanso</title>
+        {% endif %}   
+    
+	</head>
+	
+	<body>
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+				<a href="{% url 'store-home'%}" class="logo" title = 'Nanso Homepage'>
+					<img src= "data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeD0iMHB4IiB5PSIwcHgiIHZpZXdCb3g9IjAgMCA1MTEuOTk5IDUxMS45OTkiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMS45OTkgNTExLjk5OTsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSI1MTJweCIgaGVpZ2h0PSI1MTJweCI+CjxnPgoJPHBhdGggc3R5bGU9ImZpbGw6I0MzRUEyMTsiIGQ9Ik0xNDQuNjY0LDQwMi42NzVjLTY5Ljg4OSwwLTEzMy4wMTgtNTIuOTgtMTM2LjAwNS01NS41MjNMMCwzMzkuNzgxbDQuNzU4LTEwLjMyOCAgIGMxLjg1NC00LjAyOCw0Ni4zNi05OC44NTksMTI2LjMzMS0xMTYuNDg0bDYuNDM1LTEuNDE4YzUxLjQ5MS0xMS4zNDgsMTAyLjYxOCwyMS4zMTEsMTEzLjk2Niw3Mi44MDMgICBjMTEuMzQ4LDUxLjQ5My0yMS4zMTEsMTAyLjYxNy03Mi44MDIsMTEzLjk2NmwtNi40MzYsMS40MThDMTYzLjAyMiw0MDEuNzczLDE1My43ODIsNDAyLjY3NSwxNDQuNjY0LDQwMi42NzV6Ii8+Cgk8cGF0aCBzdHlsZT0iZmlsbDojQzNFQTIxOyIgZD0iTTM1Ny42NzcsMjgxLjk0MWMtMzMuOTA5LDAtNjcuNTI4LTE0Ljc5MS05MC4zNjItNDMuMjI2ICAgYy0xOS4zNTctMjQuMTA2LTI4LjE2OS01NC4zMDgtMjQuODExLTg1LjA0MWMzLjM1OC0zMC43MzMsMTguNDgyLTU4LjMyLDQyLjU4OS03Ny42NzhsNi40MTktNS4xNTYgICBjMzIuNzU2LTI2LjMwMSw3OS40NTMtMzkuOTUsMTM1LjA4LTM5LjUzNWM0MS4xNTMsMC4zMjQsNzIuNjk0LDguMTE4LDc0LjAxOCw4LjQ0OWwxMS4wMjksMi43NjVsMC4zMTgsMTEuMzY2ICAgYzAuMTUzLDUuNDY0LDIuODUsMTM0LjUzNC03NS41MDIsMTk3LjQ1MWgwLjAwMWwtNi40Miw1LjE1NkM0MDguNzA3LDI3My42MiwzODMuMTEsMjgxLjk0MSwzNTcuNjc3LDI4MS45NDF6Ii8+CjwvZz4KPHBhdGggc3R5bGU9ImZpbGw6IzhBREI1MzsiIGQ9Ik00MTMuNTg3LDEwMi4xODFjLTIyLjM1Myw1LjYyNC01Ni4xMzIsMTQuMTIxLTg2LjE1MywzMi4yMDIgIGMtMzcuNDk2LDIyLjU4My01OC42MzcsNTQuMDA5LTYyLjgzNiw5My40MDRsLTAuMDg0LDAuNzkydjYyLjc0NmMtMTYuMzE3LTE2LjEwMS0zNC4zNTktMjYuMTE4LTUzLjk0NC0yOS44OTYgIGMtNTEuMTMxLTkuODYxLTk3LjQ0MiwyNS4xMjYtMTIyLjMyMiw0My45MjRsMTguMDg5LDIzLjk0YzIxLjE1NC0xNS45ODQsNjAuNTI2LTQ1LjczNiw5OC41NS0zOC40MDIgIGMyMS45MTQsNC4yMjcsNDEuOTU5LDIwLjU3MSw1OS42MjYsNDguNTg5djE0MS4yMjNoMzAuMDA1VjIzMC4yMDFjNy45MTQtNjkuMTE4LDg0LjkzNy04OC40OTQsMTI2LjM4Ni05OC45MjJMNDEzLjU4NywxMDIuMTgxeiIvPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" 
+						width = 25 height  = 25 >Nanso</a>
+				<nav id="nav">
+					<a href="{% url 'store-home'%}">Home</a>
+					<a href="#">Generic</a>
+					<a href="#">Elements</a>
+				</nav>
+				
+			</div>
+		</header>
+		<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+	
+	<!-- Banner -->
+		<section id="banner">
+			<div class="inner">
+				<ul class="actions">
+					<!-- <li><a href="#" class="button alt">More about us</a></li> -->
+				</ul>
+			</div>
+		</section>
+
+	<!-- One -->
+		<section id="one">
+			<div class="inner">
+				{% if messages %}
+				{% for message in messages %}
+					<div class ="alert alert-{{ message.tags }}">
+					{{message}}
+					</div>
+				{% endfor%}
+				{% endif%}
+
+				{% block content %}
+
+				{% endblock %}
+			</div>
+		</section>
+
+		<!-- Two -->
+		<section id="two">
+			<div class="inner">
+				<article>
+					<div class="content">
+						<header>
+							<h3>Pellentesque adipis</h3>
+						</header>
+						<div class="image fit">
+							<img src="images/pic01.jpg" alt="" />
+						</div>
+						<p>Cumsan mollis eros. Pellentesque a diam sit amet mi magna ullamcorper vehicula. Integer adipiscin sem. Nullam quis massa sit amet lorem ipsum feugiat tempus.</p>
+					</div>
+				</article>
+				<article class="alt">
+					<div class="content">
+						<header>
+							<h3>Morbi interdum mol</h3>
+						</header>
+						<div class="image fit">
+							<img src="images/pic02.jpg" alt="" />
+						</div>
+						<p>Cumsan mollis eros. Pellentesque a diam sit amet mi magna ullamcorper vehicula. Integer adipiscin sem. Nullam quis massa sit amet lorem ipsum feugiat tempus.</p>
+					</div>
+				</article>
+			</div> 
+		</section>
+
+		<!-- Three -->
+		<section id="three">
+			<div class="inner">
+				<article>
+					<div class="content">
+						<span class="icon fa-laptop"></span>
+						<header>
+							<h3>Tempus Feugiat</h3>
+						</header>
+						<p>Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna lorem ullamcorper laoreet, lectus arcu.</p>
+						<ul class="actions">
+							<li><a href="#" class="button alt">Learn More</a></li>
+						</ul>
+					</div>
+				</article>
+				<article>
+					<div class="content">
+						<span class="icon fa-diamond"></span>
+						<header>
+							<h3>Aliquam Nulla</h3>
+						</header>
+						<p>Ut convallis, sem sit amet interdum consectetuer, odio augue aliquam leo, nec dapibus tortor nibh sed.</p>
+						<ul class="actions">
+							<li><a href="#" class="button alt">Learn More</a></li>
+						</ul>
+					</div>
+				</article>
+				<article>
+				<div class="content">
+						<span class="icon fa-laptop"></span>
+						<header>
+							<h3>Sed Magna</h3>
+						</header>
+						<p>Suspendisse mauris. Fusce accumsan mollis eros. Pellentesque a diam sit amet mi ullamcorper vehicula.</p>
+						<ul class="actions">
+							<li><a href="#" class="button alt">Learn More</a></li>
+						</ul>
+					</div>
+				</article>
+			</div>
+		</section>
+
+        <script src=" {% static 'Nanso/jquery.min.js'%}"></script>
+        <script src=" {% static 'Nanso/skel.min.js'%}"></script>
+        <script src=" {% static 'Nanso/util.js'%}"></script>
+        <script src=" {% static 'Nanso/main.js'%}"></script>
+        
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		
+	</body>
+</html>
