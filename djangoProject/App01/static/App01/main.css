@@ -14,7 +14,7 @@ ul {
 }
 
 .bg-steel {
-  background-color: #5f788a;
+  background-color: #1d3d42;
 }
 
 .site-header .navbar-nav .nav-link {
@@ -38,7 +38,8 @@ ul {
   word-wrap: break-word;
   overflow-wrap: break-word;
   overflow: hidden;
-  max-width: 550px;
+  max-width: 800px;
+  min-width: 400px;
 }
 
 .article-title {
@@ -53,7 +54,7 @@ a.article-title:hover {
 .article-content {
   word-wrap: break-word;
   overflow-wrap: break-word;
-  max-width: 550px;
+  max-width: 800px;
   overflow: hidden;
   float: left;
 }

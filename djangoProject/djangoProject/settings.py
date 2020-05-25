@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'App01.apps.App01Config',
     'users.apps.UsersConfig',
+    'Nanso.apps.NansoConfig',
     'bootstrap_datepicker',
     'crispy_forms',
     'django.contrib.admin',

@@ -1,28 +1,29 @@
 {%extends "App01/base.html" %} Call the base template
 {% block content %}
 
-<article class = "media content-section">
-  <div>
-      <!-- <a class = "btn bn-outline-info mb-4" href = "#">{{view.kwargs.username}}'s Profile</a> -->
-    <h2 class = "mr-4" href = "#">{{view.kwargs.username}}'s Posts</h2>
-    <a class = "mr-4" href ="{% url 'profile-detail' view.kwargs.username %}">Profile Information</a>
+<div class = "row">
+  <div class = "col-12">
+    <h2 href = "#">{{view.kwargs.username}}'s Posts</h2>         
   </div>
-</article>
+  <div class = "col-3 mt-2">
+    <a class = "btn btn-outline-dark col-sm" href ="{% url 'profile-detail' view.kwargs.username %}">Profile Information</a>           
+  </div>
+</div>
 
 
 {% for post in posts %}
   <!-- This is a for loop for html syntax, open and close if statements-->
-    <article class="media content-section">
-      <img class = "rounded-circle article-img" src= "{{ post.author.profile.image.url }}">
-      <div class="media-body">  
-        <div class="article-metadata">
-          <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
-          <small class="text-muted">{{ post.date_posted | date:"d F, Y"}}</small>
-        </div>
-        <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
-        <p class="article-content">{{ post.content }}</p>
+  <article class="media content-section mt-3">
+    <img class = "rounded-circle article-img" src= "{{ post.author.profile.image.url }}">
+    <div class="media-body">  
+      <div class="article-metadata">
+        <a class="" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+        <small class="text-muted">{{ post.date_posted | date:"d F, Y"}}</small>
       </div>
-    </article>
+      <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+      <p class="article-content">{{ post.content }}</p>
+    </div>
+  </article>
 {% endfor %}
 
   <!-- Paginiator details-->
