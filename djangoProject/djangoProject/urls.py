@@ -50,7 +50,10 @@ urlpatterns = [
     # In human terms, if we go to url/app01HomePage/ where do we send them to. If we access app01HomePage, we will go to App01.urls
     
     # For google gmail
-    path('accounts/', include('allauth.urls'), name = 'google_sign_in')
+    path('accounts/', include('allauth.urls'), name = 'google_sign_in'),
+
+    # Nanso
+    path('', include('Nanso.urls'))
 ]
 
 if settings.DEBUG:  # if in debug mode
