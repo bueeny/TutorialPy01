@@ -21,12 +21,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '#pcz7bta#1^10rhif##mvz8j_*xfa*2339!4+gvz_u@n9u@h9w'
+with open('secretkey_django.txt') as f:
+    SECRET_KEY = f.read().strip()
+SECRET_KEY = SECRET_KEY
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["mysterious-inlet-83425.herokuapp.com"]
 
 
 # Application definition
@@ -178,7 +180,9 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'bueeny1911@gmail.com'
-EMAIL_HOST_PASSWORD = 'hhhjwfdaacqkiiay'
+with open('gmail_host_pw.txt') as f:
+    EMAIL_HOST_PASSWORD = f.read().strip()
+EMAIL_HOST_PASSWORD = EMAIL_HOST_PASSWORD
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
