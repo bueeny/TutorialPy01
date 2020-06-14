@@ -1,6 +1,7 @@
 project_env
 .vscode
 __pycache__
+post.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
