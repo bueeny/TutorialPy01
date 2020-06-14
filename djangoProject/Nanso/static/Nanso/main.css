@@ -2716,7 +2716,7 @@ a[data-toggle="collapse"] {
     /* don't forget to add all the previously mentioned styles here too */
     background: #eeeff0;
     color: #fff;
-	transition: all 0.3s;
+	transition: all 0.5s;
 }
 
 #sidebar .sidebar-header {
@@ -2746,18 +2746,19 @@ a[data-toggle="collapse"] {
 #sidebar ul li a {
     padding: 2.5px;
 	font-size: 16.5px;
+	font-weight: 450;
 	text-decoration: none;
     display: block;
 }
 
 #sidebar ul li a:hover {
-	color: #12502c;
+	color: rgba(31, 173, 119, 0.75);
 	background: #eeeff0;
 	font-weight: bold;
 	text-decoration: none;
 }
 
-#sidebar ul li.active > a, a[aria-expanded="true"] {
+#sidebar ul li.active > a, a[aria-expanded="true" ] {
     color: #12502c;
 	background: #eeeff0;
 	text-decoration: none;
