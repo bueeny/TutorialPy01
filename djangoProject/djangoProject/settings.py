@@ -34,7 +34,6 @@ INSTALLED_APPS = [
     'App01.apps.App01Config',
     'users.apps.UsersConfig',
     'Nanso.apps.NansoConfig',
-    'bootstrap_datepicker',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -148,13 +147,13 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
 # Simplified static file serving.
 # https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # MediaRoot Directory where uploaded profile images are stored
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') #full path is created automatically (BASE_DIR is based off django base file)
