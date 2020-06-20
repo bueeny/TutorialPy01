@@ -169,10 +169,10 @@ a[data-toggle="collapse"] {
 /* Side bar for mobile, sidebar is closed by default */
 @media (max-width: 768px) {
     #sidebar {
-        margin-left: -200px;
+        margin-left: 0px;
     }
     #sidebar.active {
-        margin-left: 0px;
+        margin-left: -200px;
     }
 }	
 
