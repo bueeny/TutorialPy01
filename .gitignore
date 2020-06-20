@@ -141,3 +141,5 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
+gmail_host_pw.txt
+secretkey_django.txt
