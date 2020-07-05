@@ -42,18 +42,18 @@ class Product(models.Model):
     def __str__ (self):
         return self.productName
 
-    def save(self, *args, **kwargs): # overwrite save function here. To resize image, whens saving this class.
-        super().save(*args, **kwargs) # Using super for parent attribute
+    # def save(self, *args, **kwargs): # overwrite save function here. To resize image, whens saving this class.
+    #     super().save(*args, **kwargs) # Using super for parent attribute
 
-        img = Image.open(self.image.path) #Open image from nthe path
+    #     img = Image.open(self.image.path) #Open image from nthe path
         
-        if (img.height > 500 or img.width > 500):
-            basewidth = 500
-            wpercent = (basewidth/float(img.size[0]))
-            hsize = int((float(img.size[1])*float(wpercent))) # maintain aspect ratio
-            output_size = (basewidth,hsize) # maintain aspect ratio
-            img.thumbnail(output_size, Image.ANTIALIAS)
-            img.save(self.image.path) # This block of code is to overwrite the save method of a model.
+    #     if (img.height > 500 or img.width > 500):
+    #         basewidth = 500
+    #         wpercent = (basewidth/float(img.size[0]))
+    #         hsize = int((float(img.size[1])*float(wpercent))) # maintain aspect ratio
+    #         output_size = (basewidth,hsize) # maintain aspect ratio
+    #         img.thumbnail(output_size, Image.ANTIALIAS)
+    #         img.save(self.image.path) # This block of code is to overwrite the save method of a model.
 
         # each object will coresspond to one url
     def get_absolute_url(self):
