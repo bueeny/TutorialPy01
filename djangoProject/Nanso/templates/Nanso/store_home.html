@@ -1,2 +1,18 @@
 {%extends "Nanso/base.html" %} <!-- Call the base template -->
-
+{% block content %}
+  {% for product in products %}
+  <!-- This is a for loop for html syntax, open and close if statements-->
+  <article class="container">
+        {% if product.image %}
+        <img class="image-container" src="{{ product.image.url }}"> <!-- If product image exist if not  -->
+        {% endif %}     
+        <div class="body align-center">
+            <h2><a  href="#">{{ product.productName }}</a></h2>
+            <p>{{ product.priceCurrency |linebreaks }}</p>
+            <p>{{ product.productPrice |linebreaks }}</p>
+            <p>{{ product.productCategory |linebreaks }}</p>
+            <p>{{ product.productDescription |linebreaks }}</p>
+      </div>
+  </article>
+  {% endfor %}
+{% endblock content %}

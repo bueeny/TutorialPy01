@@ -7,17 +7,19 @@
   <div class="media-body">
     <p class="account-heading col-ml-2 mb-1">{{ userprofile.user }}</p>
     <div class="article-metadata">
-      <p>Email : {{ userprofile.user.email }}</p>
-      <p>Birthdate : {{ userprofile.birthday | date:"d F,Y" }}</p>
-      <p>Location : {{ userprofile.location}}</p>
-      <p class = "mb-1">Profile Bio:</p>
-      <p class="content-section ml-auto p-2">{{userprofile.bio}}</p>
-    </div>
+      <div class="card-body">
+        <p>Email : {{ userprofile.user.email }}</p>
+        <p>Birthdate : {{ userprofile.birthday | date:"d F,Y" }}</p>
+        <p>Location : {{ userprofile.location}}</p>
+        <p>{{userprofile.bio | linebreaks}}</p>
+        {% if userprofile.user == user %}
+        <a class = "btn btn-outline-info" href = "{% url 'profile' %}">Update Profile</a><br>
+        {% endif %}
+      </div>
 
-      {% if userprofile.user == user %}
-      <a class = "btn btn-outline-info" href = "{% url 'profile' %}">Update Profile</a>
-      {% endif %}
+    </div>
   </div>
 </article>
 
 {% endblock content%}
+  
