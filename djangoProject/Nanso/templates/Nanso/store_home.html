@@ -1,18 +1,25 @@
 {%extends "Nanso/base.html" %} <!-- Call the base template -->
 {% block content %}
-  {% for product in products %}
   <!-- This is a for loop for html syntax, open and close if statements-->
-  <article class="container">
-        {% if product.image %}
-        <img class="image-container" src="{{ product.image.url }}"> <!-- If product image exist if not  -->
-        {% endif %}     
-        <div class="body align-center">
-            <h2><a  href="#">{{ product.productName }}</a></h2>
-            <p>{{ product.priceCurrency |linebreaks }}</p>
-            <p>{{ product.productPrice |linebreaks }}</p>
-            <p>{{ product.productCategory |linebreaks }}</p>
-            <p>{{ product.productDescription |linebreaks }}</p>
+  <div class = "wrapper-product">
+    {% for product in products %}
+    <div id = "product-listing">
+      <div class="product-card">
+        <div class = "product-pic">
+          <img src="{{ product.image.url }}" />
+        </div>
+        <h1 href = "#">{{ product.productCategory |linebreaks }}</h1>
+        <h2><a  href="#">{{ product.productName }}</a></h2>
+        <p>{{ product.priceCurrency |linebreaks }} {{ product.productPrice |linebreaks }}</p>
+        <!-- <div class = "product-description">
+          <p class = "product-description">{{ product.productDescription |linebreaks }}</p>
+        </div> -->
+        <div class="buttons">
+          <button class="btn btn-outline-success mt-3 mr-2" type="submit">Add to Cart</button>
+          <button class="btn btn-outline-success mt-3" type="submit" style = "width:10%"><span>♥</span></button>
+        </div>
       </div>
-  </article>
-  {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
 {% endblock content %}
