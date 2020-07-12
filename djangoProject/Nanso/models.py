@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.contrib.auth.admin import User
 from django.shortcuts import get_object_or_404
 from PIL import Image, ImageOps
-
+from datetime import datetime
 
 # Create your models here.
 class Customer(models.Model):
@@ -38,6 +38,11 @@ class Product(models.Model):
     productDescription = models.TextField(blank = True)
     image = models.ImageField(default = 'default.jpg', upload_to = 'product-pics',blank=True) 
     date_posted = models.DateTimeField(default =  timezone.now)
+
+    @property
+    def is_new(self):
+        days = int((timezone.now() - self.date_posted).days)
+        return days
     
     def __str__ (self):
         return self.productName
