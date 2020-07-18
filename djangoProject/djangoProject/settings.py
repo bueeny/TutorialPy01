@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 ]
 
 # All AUTH Settings
-SITE_ID = 1 #1 for deployed application due to database differences between local and deployed Heroku application.
+SITE_ID = 3 #1 for deployed application due to database differences between local and deployed Heroku application.
 # STIE ID 4 is for local server
 ACCOUNT_EMAIL_VERIFICATION = True
 ACCOUNT_EMAIL_REQUIRED = True   
