@@ -146,7 +146,7 @@ outline: none;
 
 .wrapper-product {
 	display: grid;
-	grid-template-columns: 400px 400px 400px;
+	grid-template-columns: 400px 400px 400px 400px;
 	column-gap: 40px;
 }
 
